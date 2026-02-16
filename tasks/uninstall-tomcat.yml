@@ -1,0 +1,36 @@
+- name: Stop Tomcat
+  systemd:
+    name: tomcat
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+
+- name: Remove service file
+  file:
+    path: /etc/systemd/system/tomcat.service
+    state: absent
+
+- name: Reload systemd
+  command: systemctl daemon-reload
+
+- name: Remove Tomcat installation
+  file:
+    path: "{{ tomcat_install_dir }}"
+    state: absent
+
+- name: Remove symlink
+  file:
+    path: "{{ tomcat_symlink }}"
+    state: absent
+
+- name: Remove tomcat user
+  user:
+    name: "{{ tomcat_user }}"
+    state: absent
+    remove: yes
+
+- name: Remove tomcat group
+  group:
+    name: "{{ tomcat_group }}"
+    state: absent
+

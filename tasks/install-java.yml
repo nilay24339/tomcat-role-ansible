@@ -1,0 +1,5 @@
+- name: Install Java
+  package:
+    name: "{{ java_package[ansible_os_family] }}"
+    state: present
+

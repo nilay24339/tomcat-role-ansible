@@ -1,0 +1,15 @@
+- name: Ensure tomcat group exists
+  group:
+    name: tomcat
+    state: present
+
+- name: Ensure tomcat user exists
+  user:
+    name: tomcat
+    group: tomcat
+    shell: /bin/false
+    home: /opt/tomcat
+    create_home: no
+    system: yes
+    state: present
+

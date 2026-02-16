@@ -1,0 +1,5 @@
+- include_tasks: configure-user.yml
+- include_tasks: install-java.yml
+- include_tasks: install-tomcat.yml
+- include_tasks: deploy-app.yml
+

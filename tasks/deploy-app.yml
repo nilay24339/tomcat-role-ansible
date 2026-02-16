@@ -1,0 +1,6 @@
+- name: Deploy sample WAR on Tomcat server
+  get_url:
+    url: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+    dest: /opt/tomcat/webapps/sample.war
+    mode: '0644'
+
